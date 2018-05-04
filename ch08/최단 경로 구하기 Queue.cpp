@@ -35,7 +35,7 @@ int main()
                 dis[i] = dis[tmp] + map[tmp][i];
                 q.push(i);
 //                for(int x = 1; x <= N; x++) printf("%d ", dis[x]);
-//                printf("\n");
+//                 printf("\n");
             }
         }
     }
