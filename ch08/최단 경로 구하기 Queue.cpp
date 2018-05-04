@@ -43,6 +43,3 @@ int main()
     else printf("%d", dis[end]);
     
 }
-
-//최단 경로 구하기 -> 시험문제나 퀴즈 문제 나올 것 같음
-//map 배열과 dis 배열 전부 찍어보기
