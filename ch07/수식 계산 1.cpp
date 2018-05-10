@@ -2,40 +2,38 @@
 #include <stack>
 
 using namespace std;
+stack<int> st;
 
 int main()
 {
-    char inp[201];
-    stack<int> nums;
+    char str[201];
+    scanf("%[^\n]s", str);
     
-    scanf("%[^\n]s", &inp);
-    for(int i = 0; inp[i]; i++)
+    for(int i = 0; str[i]; i++)
     {
-        if(inp[i] >= '0' && inp[i] <= '9')
+        if(str[i] >= '0' && str[i] <= '9')
         {
-            int k = 0;
-            while(inp[i] >= '0' && inp[i] <= '9')
+            int n = 0;
+            while(str[i] >= '0' && str[i] <= '9') //10 이상일 때
             {
-                k *= 10;
-                k += inp[i] - '0';
+                n *= 10;
+                n += str[i] - '0';
                 i++;
             }
-            nums.push(k);
+            st.push(n);
             continue;
         }
-        else if(!(inp[i] == '*' || inp[i] == '+' || inp[i] == '-')) continue;
-        
-        int v = nums.top();
-        nums.pop();
-        int w = nums.top();
-        nums.pop();
-        
-        if(inp[i] == '*') v = w * v;
-        else if(inp[i] == '+') v = w + v;
-        else if(inp[i] == '-') v = w - v;
-        
-        nums.push(v);
+        else if(str[i] == '*' || str[i] == '+' || str[i] == '-') //str에 *, +, - 기호가 들어오면
+        {
+            int a = st.top();
+            st.pop();
+            int b = st.top();
+            st.pop();
+            if(str[i] == '*') st.push(b*a);
+            if(str[i] == '+') st.push(b+a);
+            if(str[i] == '-') st.push(b-a);
+        }
     }
-    printf("%d", nums.top());
-    
+    printf("%d", st.top());
 }
+
