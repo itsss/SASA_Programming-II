@@ -27,11 +27,14 @@ int main()
     dis[start] = 0;
     
     q.push(start);
-    while(!q.empty()) {
+    while(!q.empty())
+    {
         tmp = q.front();
         q.pop();
-        for(int i = 1; i <= N; i+=1) {
-            if(map[tmp][i] && dis[i] > dis[tmp] + map[tmp][i]) {
+        for(int i = 1; i <= N; i+=1)
+        {
+            if(map[tmp][i] && dis[i] > dis[tmp] + map[tmp][i])
+            {
                 dis[i] = dis[tmp] + map[tmp][i];
                 q.push(i);
 //                for(int x = 1; x <= N; x++) printf("%d ", dis[x]);

@@ -15,13 +15,18 @@ int main()
     
     for(int i = 0; i < n; i++) scanf("%d %d", &a[i], &b[i]);
     
-    for(int i = 1; i <= 120; i++) {
-        if(i%10 == 0) {
+    for(int i = 1; i <= 120; i++)
+    {
+        if(i%10 == 0)
+        {
             for(int j = 0; j < 5; j++) q.push(i);
         }
-        if(i == a[t]){
-            if(q.size() >= b[t]) {
-                for(int j = 0; j < b[t]; j++) {
+        if(i == a[t])
+        {
+            if(q.size() >= b[t])
+            {
+                for(int j = 0; j < b[t]; j++)
+                {
                     q.pop();
                     sum++;
                 }
