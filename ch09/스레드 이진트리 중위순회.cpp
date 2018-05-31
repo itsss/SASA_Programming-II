@@ -8,8 +8,7 @@ typedef struct treeNode {
     int isThreadRight;
 }treeNode;
 
-treeNode* makeRootNode(char data, treeNode* leftnode, treeNode* rightnode, int isThreadRight)
-{
+treeNode* makeRootNode(char data, treeNode* leftnode, treeNode* rightnode, int isThreadRight) {
     treeNode* root = (treeNode *)malloc(sizeof(treeNode));
     root->data = data;
     root->left = leftnode;
@@ -18,25 +17,25 @@ treeNode* makeRootNode(char data, treeNode* leftnode, treeNode* rightnode, int i
     return root;
 }
 
-void threadInorder(treeNode* root)
-{
+//treeNode *findThreadSucessor(treeNode* p) {
+//    treeNode *q = p -> right;
+//    if(q == NULL) return q;
+//    if(p->isThreadRight == 1) return q;
+//    while(q->left != NULL) q = q -> left;
+//    return q;
+//}
+
+void threadInorder(treeNode* root) {
     treeNode *q, *p;
     q = root;
-    if(q != NULL)
-    {
+    if(q != NULL) {
         while(q->left) q = q->left;
-        while(q)
-        {
+        while(q) {
             printf("%3c", q->data);
             p = q;
             q = q->right;
             if(q != NULL && p->isThreadRight ==0)
-            {
-                while(q->left !=NULL)
-                {
-                    q = q->left;
-                }
-            }
+                while(q->left !=NULL) q = q->left;
         }
     }
 }
@@ -61,3 +60,4 @@ int main()
     getchar();
     return 0;
 }
+
